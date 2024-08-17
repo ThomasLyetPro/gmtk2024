@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Register(AI_Minion newMinion)
+/*    public void Register(AI_Minion newMinion)
     {
         minions.Add(newMinion);
     }
@@ -56,5 +56,12 @@ public class Player : MonoBehaviour
     public void UnRegister(AI_Minion oldMinion)
     {
         minions.Remove(oldMinion);
+    }*/
+
+    [SerializeField] GameObject minion;
+    internal void SpawnMinion()
+    {
+        var newMinion = Instantiate(minion);
+        newMinion.transform.position = gameObject.transform.position;
     }
 }

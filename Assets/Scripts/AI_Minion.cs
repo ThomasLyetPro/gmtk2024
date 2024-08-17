@@ -25,7 +25,7 @@ public class AI_Minion : MonoBehaviour
 
     private void OnDestroy()
     {
-        Player.singleton.UnRegister(this);
+        //Player.singleton.UnRegister(this);
     }
 
     public void SetTarget(Vector3 destination)

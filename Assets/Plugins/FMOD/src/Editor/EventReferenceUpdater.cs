@@ -681,38 +681,17 @@ namespace FMODUnity
                 foreach (FieldInfo subObjectField in subObjectFields)
                 {
                     object value = subObjectField.GetValue(target);
-                    if (value == null || (value is UnityEngine.Object && !(value as UnityEngine.Object)))
-                    { 
-                        continue;
-                    }
 
-                    if (subObjectField.FieldType.IsValueType || !parents.Contains(value))
+                    if (value != null && (subObjectField.FieldType.IsValueType || !parents.Contains(value)))
                     {
-                        if (value is System.Collections.IEnumerable && !(value is string))
+                        if (value is System.Collections.IEnumerable)
                         {
                             int index = 0;
-                            var valueEnumerator = (value as System.Collections.IEnumerable).GetEnumerator();
-                            for (;;)
+                            foreach (object item in value as System.Collections.IEnumerable)
                             {
-                                object item = null;
-                                try
+                                foreach (Task t in GetGenericUpdateTasks(item, FieldPath(subObjectPath, subObjectField.Name, index), parents))
                                 {
-                                    if (!valueEnumerator.MoveNext())
-                                    {
-                                        break;
-                                    }
-                                    item = valueEnumerator.Current;
-                                }
-                                catch (Exception)
-                                {
-                                    break;
-                                }
-                                if (item != null && !item.GetType().IsPrimitive)
-                                {
-                                    foreach (Task t in GetGenericUpdateTasks(item, FieldPath(subObjectPath, subObjectField.Name, index), parents))
-                                    {
-                                        yield return t;
-                                    }
+                                    yield return t;
                                 }
                                 index++;
                             }
