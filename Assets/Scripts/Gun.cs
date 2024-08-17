@@ -10,7 +10,7 @@ public class Gun : Weapon
     [SerializeField] float delayBetweenProjectile = 1f;
     float lastShot = -10f;
 
-    private void Start()
+    private void OnEnable()
     {
         muzzle.Stop();
     }
@@ -26,21 +26,12 @@ public class Gun : Weapon
             RaycastHit hitData;
             if (Physics.Raycast(ray, out hitData))
             {
-                //Instantiate(debugHitPointPrefab, hitData.point, Quaternion.identity);
                 var projectile = Instantiate(projectilePrefab, Player.singleton.GetProjectileSpawnPoint(), Quaternion.identity);
                 projectile.GetComponent<Projectile>().SetDestination(hitData.point);
                 muzzle.Play();
-               // StartCoroutine(StopMuzzle());
             }
         }
     }
-
-    IEnumerator StopMuzzle()
-    {
-        yield return new WaitForSeconds(1f);
-        muzzle.Stop();
-    }
-
 
     public override void SecondaryAction()
     {

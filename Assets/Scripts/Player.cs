@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     InputAction chargeAction;
     InputAction recallAction;
     InputAction shootAction;
+    InputAction wheelAction;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
         chargeAction = allActions.FindAction("Charge");
         recallAction = allActions.FindAction("Recall");
         shootAction = allActions.FindAction("Shoot");
+        wheelAction = allActions.FindAction("Wheel");
     }
 
     [SerializeField] Weapon[] weapons;
@@ -57,6 +59,21 @@ public class Player : MonoBehaviour
         if (shootAction.IsPressed())
         {
             weapons[currentWeapon].PrimaryAction();
+        }
+
+        var wheelValue = wheelAction.ReadValue<Vector2>();
+        if(wheelValue.y != 0)
+        {
+
+            weapons[currentWeapon].gameObject.SetActive(false);
+            if (wheelValue.y > 0)
+                currentWeapon = (currentWeapon + 1) % weapons.Length;
+            else
+            {
+                currentWeapon--;
+                if (currentWeapon < 0) currentWeapon = weapons.Length - 1;
+            }
+            weapons[currentWeapon].gameObject.SetActive(true);
         }
     }
 
