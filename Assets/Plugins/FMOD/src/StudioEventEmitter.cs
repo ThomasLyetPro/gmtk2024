@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace FMODUnity
 {
@@ -19,8 +18,7 @@ namespace FMODUnity
         public bool AllowFadeout = true;
         public bool TriggerOnce = false;
         public bool Preload = false;
-        [FormerlySerializedAs("AllowNonRigidbodyDoppler")]
-        public bool NonRigidbodyVelocity = false;
+        public bool AllowNonRigidbodyDoppler = false;
         public ParamRef[] Params = new ParamRef[0];
         public bool OverrideAttenuation = false;
         public float OverrideMinDistance = -1.0f;
@@ -115,19 +113,11 @@ namespace FMODUnity
 
             HandleGameEvent(EmitterGameEvent.ObjectStart);
 
-            // If a Rigidbody or Rigidbody2D is present on this GameObject, turn off "nonRigidbodyVelocity"
+            // If a Rigidbody is added, turn off "allowNonRigidbodyDoppler" option
 #if UNITY_PHYSICS_EXIST
-            if (NonRigidbodyVelocity && GetComponent<Rigidbody>())
+            if (AllowNonRigidbodyDoppler && GetComponent<Rigidbody>())
             {
-                Debug.LogWarning(string.Format("[FMOD] Non-Rigidbody Velocity is enabled on Emitter attached to GameObject \"{0}\", which also has a Rigidbody component attached - this will be disabled in favor of velocity from Rigidbody component.", this.name));
-                NonRigidbodyVelocity = false;
-            }
-#endif
-#if UNITY_PHYSICS2D_EXIST
-            if (NonRigidbodyVelocity && GetComponent<Rigidbody2D>())
-            {
-                Debug.LogWarning(string.Format("[FMOD] Non-Rigidbody Velocity is enabled on Emitter attached to GameObject \"{0}\", which also has a Rigidbody2D component attached - this will be disabled in favor of velocity from Rigidbody2D component.", this.name));
-                NonRigidbodyVelocity = false;
+                AllowNonRigidbodyDoppler = false;
             }
 #endif
         }
@@ -277,7 +267,7 @@ namespace FMODUnity
 #endif
                     {
                         instance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
-                        RuntimeManager.AttachInstanceToGameObject(instance, transform, NonRigidbodyVelocity);
+                        RuntimeManager.AttachInstanceToGameObject(instance, transform, AllowNonRigidbodyDoppler);
                     }
                 }
             }
