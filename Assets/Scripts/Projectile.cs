@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     public void SetDestination(Vector3 destination)
     {
         var direction = destination - transform.position;
+        direction = direction.normalized;
         GetComponent<Rigidbody>().velocity = direction * speed;
         Destroy(gameObject, lifetime);
     }
