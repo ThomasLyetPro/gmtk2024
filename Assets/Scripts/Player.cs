@@ -83,6 +83,6 @@ public class Player : MonoBehaviour
     internal void SpawnMinion()
     {
         var newMinion = Instantiate(minion);
-        newMinion.transform.position = gameObject.transform.position + (Vector3.forward * 2f);
+        newMinion.transform.position = gameObject.transform.position + (Vector3.forward * -2f);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,18 @@ public class AI_Minion : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        fists = GetComponentInChildren<Fists>();
+        StartCoroutine(FistFury());
+    }
+
+    Fists fists;
+    private IEnumerator FistFury()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.6f);
+            fists.PrimaryAction();
+        }
     }
 
     // Update is called once per frame

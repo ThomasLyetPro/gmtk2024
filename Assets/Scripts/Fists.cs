@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Fists : Weapon
 {
-    [SerializeField] GameObject projectilePrefab;
     [SerializeField] float delayBetweenProjectile = 1f;
     float lastShot = -10f;
 
