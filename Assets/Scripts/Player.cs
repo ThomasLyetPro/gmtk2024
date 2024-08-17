@@ -2,19 +2,50 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     public static Player singleton;
 
-    GameObject firstPositionMinion;
+    GameObject chargeTarget;
     List<AI_Minion> minions = new List<AI_Minion>();
+
+    InputAction chargeAction;
+    InputAction recallAction;
 
     // Start is called before the first frame update
     void Start()
     {
         singleton = this;
-        firstPositionMinion = transform.Find("First Position Minion").gameObject;
+        chargeTarget = transform.Find("Charge Target").gameObject;
+        var allActions = GetComponent<PlayerInput>().actions;
+        chargeAction = allActions.FindAction("Charge");
+        recallAction = allActions.FindAction("Recall");
+    }
+
+    private void Update()
+    {
+        if (chargeAction.IsPressed())
+        {
+            GameObject[] minions = GameObject.FindGameObjectsWithTag("Minion");
+            foreach(GameObject minion in minions)
+            {
+                AI_Minion realMinion = minion.GetComponent<AI_Minion>();
+                if (!realMinion) continue;
+                realMinion.SetTarget(chargeTarget.transform.position);
+            }
+        }
+        else if (recallAction.IsPressed())
+        {
+            GameObject[] minions = GameObject.FindGameObjectsWithTag("Minion");
+            foreach (GameObject minion in minions)
+            {
+                AI_Minion realMinion = minion.GetComponent<AI_Minion>();
+                if (!realMinion) continue;
+                realMinion.RecallToPlayer();
+            }
+        }
     }
 
     public void Register(AI_Minion newMinion)

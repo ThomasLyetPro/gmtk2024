@@ -30,6 +30,7 @@ public class AI_Minion : MonoBehaviour
 
     public void SetTarget(Vector3 destination)
     {
+        if (state != AIState.FollowingPlayer) return;
         state = AIState.Nothing;
         agent.destination = destination;
     }
