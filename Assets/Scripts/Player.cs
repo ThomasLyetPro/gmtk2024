@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     InputAction chargeAction;
     InputAction recallAction;
+    InputAction shootAction;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +22,14 @@ public class Player : MonoBehaviour
         chargeTarget = transform.Find("Charge Target").gameObject;
         var allActions = GetComponent<PlayerInput>().actions;
         chargeAction = allActions.FindAction("Charge");
-        recallAction = allActions.FindAction("Recall");
+        recallAction = allActions.FindAction("Shoot");
     }
+
+    [SerializeField] GameObject projectileSpawnPoint;
+    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] GameObject debugHitPointPrefab;
+    [SerializeField] float delayBetweenProjectile = 1f;
+    float lastShot = -10f;
 
     private void Update()
     {
@@ -46,22 +53,27 @@ public class Player : MonoBehaviour
                 realMinion.RecallToPlayer();
             }
         }
-    }
 
-/*    public void Register(AI_Minion newMinion)
-    {
-        minions.Add(newMinion);
-    }
+        if (recallAction.IsPressed() && (Time.time - lastShot) > delayBetweenProjectile)
+        {
+            lastShot = Time.time;
+            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Debug.DrawRay(ray.origin, ray.direction * 20, Color.red, 5f);
 
-    public void UnRegister(AI_Minion oldMinion)
-    {
-        minions.Remove(oldMinion);
-    }*/
+            RaycastHit hitData;
+            if(Physics.Raycast(ray, out hitData))
+            {
+                //Instantiate(debugHitPointPrefab, hitData.point, Quaternion.identity);
+                var projectile = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, Quaternion.identity);
+                projectile.GetComponent<Projectile>().SetDestination(hitData.point);
+            }
+        }
+    }
 
     [SerializeField] GameObject minion;
     internal void SpawnMinion()
     {
         var newMinion = Instantiate(minion);
-        newMinion.transform.position = gameObject.transform.position;
+        newMinion.transform.position = gameObject.transform.position + (Vector3.forward * 2f);
     }
 }
