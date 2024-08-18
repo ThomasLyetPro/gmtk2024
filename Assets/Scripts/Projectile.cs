@@ -15,9 +15,11 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-        if (collision.gameObject.tag == "WhiteCell") Destroyer.Destroy(collision.gameObject);
+        if (other.gameObject.layer != 2)
+            Destroy(gameObject);
+        if (other.gameObject.tag == "WhiteCell")
+            other.gameObject.GetComponent<Health>().TakeDamage(1);
     }
 }

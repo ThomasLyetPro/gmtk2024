@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4898674834483472661}
   - component: {fileID: 6666287625195648957}
   - component: {fileID: 1669652357997528224}
+  - component: {fileID: 7510509293383611101}
   m_Layer: 0
   m_Name: White Cell
   m_TagString: WhiteCell
@@ -172,7 +173,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3eda687fc3d34489b5c624431fb7e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3
   deathSFXPrefab: {fileID: 1094382600593515107, guid: def8442fb2326614cb261d16f80bb14e, type: 3}
+--- !u!114 &7510509293383611101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957743483046649247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e52b5dd64ebb14f80f021318a7722d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
 --- !u!1 &3039788466808542997
 GameObject:
   m_ObjectHideFlags: 0

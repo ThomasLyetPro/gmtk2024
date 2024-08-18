@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7841191585072597480}
   - component: {fileID: 252719473034220885}
   - component: {fileID: 6394688545008463690}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 1037718916813094947}
   - component: {fileID: 4238080266989171163}
   - component: {fileID: 604253268027965170}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 7146802803642448727}
   - component: {fileID: 2324891427583164428}
   - component: {fileID: 8339897786158908633}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Fists
   m_TagString: Untagged
   m_Icon: {fileID: 0}

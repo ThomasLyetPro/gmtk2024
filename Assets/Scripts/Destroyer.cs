@@ -11,6 +11,8 @@ public class Destroyer
 
     static public void Destroy(GameObject gameObject, float delay = 0f)
     {
+        if (gameObject.layer == 6)
+            gameObject = Player.singleton.gameObject;
         var listener = gameObject.GetComponent<IDestroyListener>();
         if (listener != null)
             listener.BeforeDestroy();

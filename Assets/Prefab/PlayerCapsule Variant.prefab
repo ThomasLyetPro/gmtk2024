@@ -233,6 +233,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1925873226565265906, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3061592626632060708}
+    - targetCorrespondingSourceObject: {fileID: 1925873226565265906, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7995618914811627379}
   m_SourcePrefab: {fileID: 100100000, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
 --- !u!4 &5920207987396874969 stripped
 Transform:
@@ -261,6 +264,20 @@ MonoBehaviour:
   - {fileID: 2587681736644405904}
   projectileSpawnPoint: {fileID: 0}
   minion: {fileID: 1395345583050975097, guid: b6d95fb1a630e09429fff12fce729470, type: 3}
+--- !u!114 &7995618914811627379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6441024193974290531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e52b5dd64ebb14f80f021318a7722d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
 --- !u!1001 &5872776931202065715
 PrefabInstance:
   m_ObjectHideFlags: 0

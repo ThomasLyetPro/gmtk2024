@@ -42,7 +42,7 @@ public class Fists : Weapon
         if (other.gameObject.tag == "WhiteCell")
         {
             Destroy(Instantiate(throwPunchSFX, gameObject.transform.position, Quaternion.identity), 3f);
-            Destroyer.Destroy(other.gameObject);
+            other.gameObject.GetComponent<Health>().TakeDamage(1);
         }
     }
 }

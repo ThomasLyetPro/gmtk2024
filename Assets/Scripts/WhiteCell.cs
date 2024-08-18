@@ -6,12 +6,12 @@ using UnityEngine.AI;
 public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener
 {
 
-    UnityEngine.AI.NavMeshAgent agent;
+    NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     GameObject target = null;
@@ -28,17 +28,14 @@ public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener
         target = newTarget;
     }
 
+    [SerializeField] int damage;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Minion") 
+        if (collision.gameObject.tag == "Minion" || collision.gameObject.layer == 6)
         {
-            Destroyer.Destroy(collision.gameObject);
-            Destroyer.Destroy(gameObject);
-        }
-        else if (collision.gameObject.layer == 6)
-        {
-            Destroyer.Destroy(Player.singleton.gameObject);
-            Destroyer.Destroy(gameObject);
+            var health = collision.gameObject.GetComponent<Health>();
+            // Collision is in children game object, wait for the collision with parent
+            if (health) health.TakeDamage(damage);
         }
     }
 
