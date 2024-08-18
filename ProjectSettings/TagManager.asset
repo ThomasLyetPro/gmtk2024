@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - Minion
   - Ennemy
+  - Nutriment
   layers:
   - Default
   - TransparentFX

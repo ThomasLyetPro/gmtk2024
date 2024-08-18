@@ -15,9 +15,12 @@ public class RedCell : MonoBehaviour, Destroyer.IDestroyListener
         if (initialDestination) SetDestination(initialDestination);
     }
 
-    private void SetDestination(Transform destination)
+    public void SetDestination(Transform destination)
     {
-        agent.destination = destination.position;
+        if (agent)
+            agent.destination = destination.position;
+        else // Start has not be called yet
+            initialDestination = destination;
     }
 
     [SerializeField] GameObject nutrimentPrefab;
