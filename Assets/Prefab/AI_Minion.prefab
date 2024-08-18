@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  regenPerSec: 0
 --- !u!1 &3898591172870508364
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +173,7 @@ GameObject:
   - component: {fileID: 6973435509382055913}
   - component: {fileID: 1774872313476006907}
   - component: {fileID: 4150662828482535578}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
