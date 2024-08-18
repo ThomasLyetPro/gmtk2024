@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener
+public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener, Detection.ITargetHolder
 {
 
     NavMeshAgent agent;
@@ -14,18 +14,26 @@ public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener
         agent = GetComponent<NavMeshAgent>();
     }
 
-    GameObject target = null;
+    GameObject currentTarget = null;
     private void Update()
     {
-        if (target)
+        if (!currentTarget)
+            targets.TryDequeue(out currentTarget);
+        if (currentTarget)
         {
-            agent.destination = target.transform.position;
+            agent.destination = currentTarget.transform.position;
         }
     }
 
-    public void SetTarget(GameObject newTarget)
+    Queue<GameObject> targets = new Queue<GameObject>();
+    public void AddTarget(GameObject newTarget)
     {
-        target = newTarget;
+        targets.Enqueue(newTarget);
+    }
+
+    public bool IsTarget(GameObject otherGameObject)
+    {
+        return otherGameObject.tag == "Minion" || otherGameObject.layer == 6;
     }
 
     [SerializeField] int damage;

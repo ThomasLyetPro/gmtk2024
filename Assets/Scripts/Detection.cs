@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Detection : MonoBehaviour
 {
+    public interface ITargetHolder
+    {
+        bool IsTarget(GameObject otherGameObject);
+        void AddTarget(GameObject newTarget);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Minion" || other.gameObject.layer == 6)
+        var targetHolder = transform.parent.GetComponent<ITargetHolder>();
+        if (targetHolder.IsTarget(other.gameObject))
         {
-            transform.parent.GetComponent<WhiteCell>().SetTarget(other.gameObject);
+            targetHolder.AddTarget(other.gameObject);
         }
     }
 }
