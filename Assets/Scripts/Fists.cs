@@ -39,7 +39,7 @@ public class Fists : Weapon
 
     public void OnTriggerEnterChild(Collider other)
     {
-        if (other.gameObject.tag == "WhiteCell")
+        if (other.gameObject.tag == "Ennemy")
         {
             Destroy(Instantiate(throwPunchSFX, gameObject.transform.position, Quaternion.identity), 3f);
             other.gameObject.GetComponent<Health>().TakeDamage(1);

@@ -19,7 +19,10 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.layer != 2)
             Destroy(gameObject);
-        if (other.gameObject.tag == "WhiteCell")
+        if (other.gameObject.tag == "Ennemy")
+        {
             other.gameObject.GetComponent<Health>().TakeDamage(1);
+            Player.singleton.PlayMockerySFX();
+        }
     }
 }

@@ -4,18 +4,41 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public interface IDamageListener
+    {
+        public void AfterDamageTaken();
+    }
+
     [SerializeField] int maxHealth = 3;
     [SerializeField] int currentHealth;
+    [SerializeField] int regenPerSec = 0;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        StartCoroutine(Regeneration());
     }
 
-    public void TakeDamage(int damage)
+    IEnumerator Regeneration()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            currentHealth = (currentHealth + regenPerSec) % maxHealth;
+        }
+    }
+
+    public bool TakeDamage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
+        {
             Destroyer.Destroy(gameObject);
+            return true;
+        }
+        var listener = GetComponent<IDamageListener>();
+        if (listener != null) listener.AfterDamageTaken();
+
+        return false;
     }
 }

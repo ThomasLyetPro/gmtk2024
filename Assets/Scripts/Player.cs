@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour, Destroyer.IDestroyListener
+public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageListener
 {
     public static Player singleton;
 
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener
             {
                 AI_Minion realMinion = minion.GetComponent<AI_Minion>();
                 if (!realMinion) continue;
-                realMinion.SetTarget(chargeTarget.transform.position);
+                realMinion.ChargeTo(chargeTarget.transform.position);
             }
         }
         else if (recallAction.IsPressed())
@@ -83,11 +83,24 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener
     internal void SpawnMinion()
     {
         var newMinion = Instantiate(minion);
-        newMinion.transform.position = gameObject.transform.position + (Vector3.forward * -2f);
+        newMinion.transform.position = gameObject.transform.position + (Vector3.forward * -2f) + Vector3.up * 0.5f;
     }
 
+    [SerializeField] GameObject deathPlayerSFXPrefab;
     public void BeforeDestroy()
     {
-        // Todo death sound
+        Destroy(Instantiate(deathPlayerSFXPrefab, gameObject.transform.position, Quaternion.identity), 3f);
+    }
+
+    [SerializeField] GameObject playerMockerySFXPrefab;
+    internal void PlayMockerySFX()
+    {
+        Destroy(Instantiate(playerMockerySFXPrefab, gameObject.transform.position, Quaternion.identity), 3f);
+    }
+
+    [SerializeField] GameObject playerHurtSFXPrefab;
+    public void AfterDamageTaken()
+    {
+        Destroy(Instantiate(playerHurtSFXPrefab, gameObject.transform.position, Quaternion.identity), 3f);
     }
 }

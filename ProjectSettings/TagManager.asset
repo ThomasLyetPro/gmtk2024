@@ -6,7 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Minion
-  - WhiteCell
+  - Ennemy
   layers:
   - Default
   - TransparentFX

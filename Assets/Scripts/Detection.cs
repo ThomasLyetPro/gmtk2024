@@ -13,7 +13,7 @@ public class Detection : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var targetHolder = transform.parent.GetComponent<ITargetHolder>();
-        if (targetHolder.IsTarget(other.gameObject))
+        if (targetHolder != null && targetHolder.IsTarget(other.gameObject))
         {
             targetHolder.AddTarget(other.gameObject);
         }

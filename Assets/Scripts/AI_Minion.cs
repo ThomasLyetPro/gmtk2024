@@ -15,6 +15,7 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.Warp(transform.position);
         fists = GetComponentInChildren<Fists>();
         StartCoroutine(FistFury());
     }
@@ -59,10 +60,10 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
         Destroy(Instantiate(deathMinionSfx, gameObject.transform.position, Quaternion.identity), 3f);
     }
 
-    public void SetTarget(Vector3 destination)
+    public void ChargeTo(Vector3 destination)
     {
         if (state != AIState.FollowingPlayer) return;
-        state = AIState.Nothing;
+        state = AIState.Charging;
         agent.destination = destination;
     }
 
@@ -80,6 +81,6 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
 
     public bool IsTarget(GameObject otherGameObject)
     {
-        return otherGameObject.tag == "WhiteCell";
+        return otherGameObject.tag == "Ennemy";
     }
 }
