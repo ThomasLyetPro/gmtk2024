@@ -6,6 +6,18 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageListener
 {
+    public class Statistic
+    {
+        public int nutriment = 0;
+    }
+
+    internal void AddNutriment(int number)
+    {
+        stats.nutriment += number;
+    }
+
+    public Statistic stats = new Statistic();
+
     public static Player singleton;
 
     GameObject chargeTarget;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6666287625195648957}
   - component: {fileID: 2752383074635563309}
   - component: {fileID: 7510509293383611101}
+  - component: {fileID: 482492714407373589}
   m_Layer: 0
   m_Name: Red Cell
   m_TagString: Ennemy
@@ -122,6 +123,20 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   regenPerSec: 0
+--- !u!114 &482492714407373589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957743483046649247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fedf0b9540fed394f9bf96167a509519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialDestination: {fileID: 0}
+  nutrimentPrefab: {fileID: 1109831429747672629, guid: ce301ccfede981a4ba39d19116d609b8, type: 3}
 --- !u!1 &3039788466808542997
 GameObject:
   m_ObjectHideFlags: 0
