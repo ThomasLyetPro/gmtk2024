@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class WhiteCell : MonoBehaviour
+public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener
 {
 
     UnityEngine.AI.NavMeshAgent agent;
@@ -32,13 +32,19 @@ public class WhiteCell : MonoBehaviour
     {
         if (collision.gameObject.tag == "Minion") 
         {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            Destroyer.Destroy(collision.gameObject);
+            Destroyer.Destroy(gameObject);
         }
         else if (collision.gameObject.layer == 6)
         {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            Destroyer.Destroy(Player.singleton.gameObject);
+            Destroyer.Destroy(gameObject);
         }
+    }
+
+    [SerializeField] GameObject deathSFXPrefab;
+    public void BeforeDestroy()
+    {
+        Destroy(Instantiate(deathSFXPrefab, gameObject.transform.position, Quaternion.identity), 3f);
     }
 }

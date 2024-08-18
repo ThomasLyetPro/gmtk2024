@@ -15,11 +15,15 @@ public class Fists : Weapon
         animator = GetComponent<Animator>();
     }
 
+    [SerializeField] GameObject throwPunchSFX;
+    [SerializeField] GameObject punchImpactSFX;
+
     public override void PrimaryAction()
     {
         if ((Time.time - lastShot) > delayBetweenProjectile)
         {
             lastShot = Time.time;
+            Destroy(Instantiate(throwPunchSFX, gameObject.transform.position, Quaternion.identity), 3f);
             if (lastPunchWasRight)
                 animator.SetTrigger("Left");
             else
@@ -37,7 +41,8 @@ public class Fists : Weapon
     {
         if (other.gameObject.tag == "WhiteCell")
         {
-            Destroy(other.gameObject);
+            Destroy(Instantiate(throwPunchSFX, gameObject.transform.position, Quaternion.identity), 3f);
+            Destroyer.Destroy(other.gameObject);
         }
     }
 }

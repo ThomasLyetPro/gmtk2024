@@ -8,6 +8,7 @@ public class Gun : Weapon
     [SerializeField] VisualEffect muzzle;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float delayBetweenProjectile = 1f;
+    [SerializeField] GameObject gunShotSFX;
     float lastShot = -10f;
 
     private void OnEnable()
@@ -29,6 +30,8 @@ public class Gun : Weapon
                 var projectile = Instantiate(projectilePrefab, Player.singleton.GetProjectileSpawnPoint(), Quaternion.identity);
                 projectile.GetComponent<Projectile>().SetDestination(hitData.point);
                 muzzle.Play();
+                var sfx = Instantiate(gunShotSFX, Player.singleton.GetProjectileSpawnPoint(), Quaternion.identity);
+                Destroy(sfx, 2f);
             }
         }
     }

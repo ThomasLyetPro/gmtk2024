@@ -18,6 +18,6 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
-        if (collision.gameObject.tag == "WhiteCell") Destroy(collision.gameObject);
+        if (collision.gameObject.tag == "WhiteCell") Destroyer.Destroy(collision.gameObject);
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, Destroyer.IDestroyListener
 {
     public static Player singleton;
 
@@ -84,5 +84,10 @@ public class Player : MonoBehaviour
     {
         var newMinion = Instantiate(minion);
         newMinion.transform.position = gameObject.transform.position + (Vector3.forward * -2f);
+    }
+
+    public void BeforeDestroy()
+    {
+        // Todo death sound
     }
 }

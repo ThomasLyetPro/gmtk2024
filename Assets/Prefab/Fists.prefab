@@ -283,8 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9118d6da6d7ae004698545eb1e50192f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
   delayBetweenProjectile: 1
+  throwPunchSFX: {fileID: 7597303336256868821, guid: c192f1d44e33f5d45910eddd25df5b38, type: 3}
+  punchImpactSFX: {fileID: 7597303336256868821, guid: cece93e89c1b2bf4b9821f8eb63239a2, type: 3}
 --- !u!95 &8339897786158908633
 Animator:
   serializedVersion: 5

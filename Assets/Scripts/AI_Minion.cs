@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AI_Minion : MonoBehaviour
+public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener
 {
     enum AIState { Nothing, FollowingPlayer };
     AIState state = AIState.FollowingPlayer;
@@ -36,9 +36,10 @@ public class AI_Minion : MonoBehaviour
             agent.destination = Player.singleton.transform.position;
     }
 
-    private void OnDestroy()
+    [SerializeField] GameObject deathMinionSfx;
+    public void BeforeDestroy()
     {
-        //Player.singleton.UnRegister(this);
+        Destroy(Instantiate(deathMinionSfx, gameObject.transform.position, Quaternion.identity), 3f);
     }
 
     public void SetTarget(Vector3 destination)
@@ -52,4 +53,6 @@ public class AI_Minion : MonoBehaviour
     {
         state = AIState.FollowingPlayer;
     }
+
+
 }
