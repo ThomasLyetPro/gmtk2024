@@ -73,7 +73,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0
+      m_SerializableObject: 0.5
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_OutputSlots: []
   m_Disabled: 0
   m_ActivationSlot: {fileID: 8926484042661614609}
-  repeat: 0
+  repeat: 1
   spawnMode: 0
   delayMode: 0
 --- !u!114 &8926484042661614607
@@ -3732,7 +3732,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -3807,7 +3807,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: o
@@ -5630,7 +5630,7 @@ MonoBehaviour:
   m_OutputSlots: []
   m_Disabled: 0
   m_ActivationSlot: {fileID: 8926484042661614804}
-  repeat: 0
+  repeat: 1
   spawnMode: 0
   delayMode: 0
 --- !u!114 &8926484042661614802
@@ -8605,7 +8605,7 @@ MonoBehaviour:
   m_OutputSlots: []
   m_Disabled: 0
   m_ActivationSlot: {fileID: 8926484042661614915}
-  repeat: 0
+  repeat: 1
   spawnMode: 0
   delayMode: 0
 --- !u!114 &8926484042661614913
@@ -11533,7 +11533,7 @@ MonoBehaviour:
   m_OutputSlots: []
   m_Disabled: 0
   m_ActivationSlot: {fileID: 8926484042661615019}
-  repeat: 0
+  repeat: 1
   spawnMode: 0
   delayMode: 0
 --- !u!114 &8926484042661615017
