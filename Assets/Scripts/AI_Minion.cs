@@ -11,7 +11,6 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
 
     NavMeshAgent agent;
 
-    // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -30,7 +29,6 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (state == AIState.FollowingPlayer)

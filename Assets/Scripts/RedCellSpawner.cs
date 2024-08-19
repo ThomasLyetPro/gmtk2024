@@ -18,6 +18,8 @@ public class RedCellSpawner : MonoBehaviour
         while(true)
         {
             var redCell = Instantiate(redCellPrefab, transform);
+            redCell.transform.position += Vector3.right * 2f;
+
             redCell.GetComponent<RedCell>().SetDestination(target);
             yield return new WaitForSeconds(delayBetweenSpawn);
         }

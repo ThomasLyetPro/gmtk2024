@@ -14,6 +14,11 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
     internal void AddNutriment(int number)
     {
         stats.nutriment += number;
+        while(stats.nutriment > 5)
+        {
+            SpawnMinion();
+            stats.nutriment -= 5;
+        }
     }
 
     public Statistic stats = new Statistic();
@@ -41,6 +46,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
     }
 
     [SerializeField] Weapon[] weapons;
+    [SerializeField] bool[] isWeaponActive;
     int currentWeapon = 0;
 
     [SerializeField] GameObject projectileSpawnPoint;
@@ -50,7 +56,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
         if (chargeAction.IsPressed())
         {
             GameObject[] minions = GameObject.FindGameObjectsWithTag("Minion");
-            foreach(GameObject minion in minions)
+            foreach (GameObject minion in minions)
             {
                 AI_Minion realMinion = minion.GetComponent<AI_Minion>();
                 if (!realMinion) continue;
@@ -74,19 +80,35 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
         }
 
         var wheelValue = wheelAction.ReadValue<Vector2>();
-        if(wheelValue.y != 0)
+        if (wheelValue.y != 0)
         {
 
             weapons[currentWeapon].gameObject.SetActive(false);
             if (wheelValue.y > 0)
-                currentWeapon = (currentWeapon + 1) % weapons.Length;
+            {
+                do
+                {
+                    currentWeapon = (currentWeapon + 1) % weapons.Length;
+                } while (!isWeaponActive[currentWeapon]);
+            }
             else
             {
-                currentWeapon--;
-                if (currentWeapon < 0) currentWeapon = weapons.Length - 1;
+                do
+                {
+                    currentWeapon--;
+                    if (currentWeapon < 0) currentWeapon = weapons.Length - 1;
+                } while (!isWeaponActive[currentWeapon]);
             }
             weapons[currentWeapon].gameObject.SetActive(true);
         }
+    }
+
+    public void UnlockWeapon(int i)
+    {
+        weapons[currentWeapon].gameObject.SetActive(false);
+        isWeaponActive[i] = true;
+        currentWeapon = i;
+        weapons[currentWeapon].gameObject.SetActive(true);
     }
 
     public Vector3 GetProjectileSpawnPoint() { return projectileSpawnPoint.transform.position; }
@@ -95,7 +117,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
     internal void SpawnMinion()
     {
         var newMinion = Instantiate(minion);
-        newMinion.transform.position = gameObject.transform.position + (Vector3.forward * -2f) + Vector3.up * 0.5f;
+        newMinion.transform.position = gameObject.transform.position + (Vector3.forward * -2f) + Vector3.up ;
     }
 
     [SerializeField] GameObject deathPlayerSFXPrefab;

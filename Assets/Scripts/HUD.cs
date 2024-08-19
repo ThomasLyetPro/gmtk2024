@@ -9,6 +9,6 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nutriment.text = "Nutriment: " + Player.singleton.stats.nutriment;
+        nutriment.text = "Nourriture: " + Player.singleton.stats.nutriment;
     }
 }

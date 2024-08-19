@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener, Detection.ITargetHolder
 {
-
     NavMeshAgent agent;
+
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     GameObject currentTarget = null;
@@ -19,6 +21,7 @@ public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     {
         if (!currentTarget)
             targets.TryDequeue(out currentTarget);
+        animator.SetBool("Attack", currentTarget);
         if (currentTarget)
         {
             agent.destination = currentTarget.transform.position;
@@ -34,17 +37,6 @@ public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     public bool IsTarget(GameObject otherGameObject)
     {
         return otherGameObject.tag == "Minion" || otherGameObject.layer == 6;
-    }
-
-    [SerializeField] int damage;
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Minion" || collision.gameObject.layer == 6)
-        {
-            var health = collision.gameObject.GetComponent<Health>();
-            // Collision is in children game object, wait for the collision with parent
-            if (health) health.TakeDamage(damage);
-        }
     }
 
     [SerializeField] GameObject deathSFXPrefab;
