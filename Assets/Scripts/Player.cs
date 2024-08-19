@@ -60,7 +60,15 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
             {
                 AI_Minion realMinion = minion.GetComponent<AI_Minion>();
                 if (!realMinion) continue;
-                realMinion.ChargeTo(chargeTarget.transform.position);
+                Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+                RaycastHit hitData;
+                if (Physics.Raycast(ray, out hitData))
+                {
+                    var minionDestination = hitData.point;
+                    minionDestination.y = 0;
+                    realMinion.ChargeTo(minionDestination);
+                }
             }
         }
         else if (recallAction.IsPressed())
@@ -129,8 +137,10 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
     }
 
     [SerializeField] GameObject deathPlayerSFXPrefab;
+    [SerializeField] GameObject GameOverHUD;
     public void BeforeDestroy()
     {
+        GameOverHUD.SetActive(true);
         Destroy(Instantiate(deathPlayerSFXPrefab, gameObject.transform.position, Quaternion.identity), 3f);
     }
 
