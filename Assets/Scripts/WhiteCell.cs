@@ -57,9 +57,11 @@ public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     [SerializeField] GameObject nutrimentPrefab;
     void SpawnNutriment()
     {
-        for (int i =0; i <3; i++)
+        for (int i =0; i < 3; i++)
         {
-            Instantiate(nutrimentPrefab, nutrimentSpawn.position, Quaternion.identity);
+            var position = nutrimentSpawn.position;
+            position.y = 0.7f;
+            Instantiate(nutrimentPrefab, position, Quaternion.identity);
             nutrimentSpawn.RotateAround(transform.position, Vector3.up, 130);
         }
 
