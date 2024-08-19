@@ -210,11 +210,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925873226565265913, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
       propertyPath: MoveSpeed
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1925873226565265913, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
       propertyPath: SprintSpeed
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6074239116653777065, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
       propertyPath: m_Layer

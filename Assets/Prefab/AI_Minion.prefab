@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 6866062188411423992}
   - component: {fileID: 8287177330622234392}
   - component: {fileID: 5471424750379758192}
-  m_Layer: 0
+  - component: {fileID: 2280749333305295708}
+  m_Layer: 8
   m_Name: AI_Minion
   m_TagString: Minion
   m_Icon: {fileID: 0}
@@ -122,11 +123,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 8
+  m_Speed: 9
+  m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 240
-  m_StoppingDistance: 3
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -162,6 +163,33 @@ MonoBehaviour:
   maxHealth: 15
   currentHealth: 0
   regenPerSec: 0
+--- !u!54 &2280749333305295708
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395345583050975097}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3898591172870508364
 GameObject:
   m_ObjectHideFlags: 0

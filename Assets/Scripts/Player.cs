@@ -76,6 +76,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
 
         if (shootAction.IsPressed())
         {
+            AlignToCamera();
             weapons[currentWeapon].PrimaryAction();
         }
 
@@ -101,6 +102,13 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
             }
             weapons[currentWeapon].gameObject.SetActive(true);
         }
+    }
+
+    private void AlignToCamera()
+    {
+        Vector3 newLocalEulerAngle = transform.localEulerAngles;
+        newLocalEulerAngle.y = Camera.main.gameObject.transform.localEulerAngles.y;
+        transform.localEulerAngles = newLocalEulerAngle;
     }
 
     public void UnlockWeapon(int i)
