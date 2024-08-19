@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5256831734176053425}
   m_Layer: 0
   m_Name: Nutriment
-  m_TagString: Untagged
+  m_TagString: Nutriment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

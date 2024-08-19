@@ -46,9 +46,12 @@ public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
         return false;
     }
 
+    static int tabasseurDestroyed = 0;
     [SerializeField] GameObject deathSFXPrefab;
     public void BeforeDestroy()
     {
+        tabasseurDestroyed++;
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TabasseurDestroyed", tabasseurDestroyed);
         SpawnNutriment();
         Destroy(Instantiate(deathSFXPrefab, gameObject.transform.position, Quaternion.identity), 3f);
     }

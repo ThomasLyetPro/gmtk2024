@@ -16,6 +16,8 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
+
+    [SerializeField] int damage = 25;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != 2)
@@ -25,7 +27,7 @@ public class Projectile : MonoBehaviour
         }
         if (other.gameObject.tag == "Ennemy")
         {
-            other.gameObject.GetComponent<Health>().TakeDamage(1);
+            other.gameObject.GetComponent<Health>().TakeDamage(damage);
             Player.singleton.PlayMockerySFX();
         }
     }
