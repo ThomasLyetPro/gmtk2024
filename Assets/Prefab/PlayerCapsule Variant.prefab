@@ -160,6 +160,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 29811326, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 547ac15126db56c46a8f1703b2b2aaed, type: 2}
     - target: {fileID: 1293029876712600392, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -283,6 +287,7 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   regenPerSec: 0
+  hurtSFX: {fileID: 0}
 --- !u!1001 &5872776931202065715
 PrefabInstance:
   m_ObjectHideFlags: 0
