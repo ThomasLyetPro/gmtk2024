@@ -113,7 +113,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9071951267520389681}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -270,6 +270,7 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 0}
   minion: {fileID: 1395345583050975097, guid: b6d95fb1a630e09429fff12fce729470, type: 3}
   deathPlayerSFXPrefab: {fileID: 7597303336256868821, guid: 53ce55bcc9490614b99a653ef646e1b3, type: 3}
+  GameOverHUD: {fileID: 0}
   playerMockerySFXPrefab: {fileID: 7597303336256868821, guid: 1a41aba6b74f4ba4d934b71f9ce51a4d, type: 3}
   playerHurtSFXPrefab: {fileID: 7597303336256868821, guid: 7fe85c5282b1e5341a04167b1b1d8c54, type: 3}
 --- !u!114 &7995618914811627379

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzle: {fileID: 7352089641461212274}
   projectilePrefab: {fileID: 8955202539104970205, guid: b0c72a8cf49b5314b8c0d1a089ef33c1, type: 3}
-  delayBetweenProjectile: 1
+  delayBetweenProjectile: 0.5
   gunShotSFX: {fileID: 9164015979544932689, guid: 2639f454284fff34dac0a48591547161, type: 3}
 --- !u!1001 &1522914065360374483
 PrefabInstance:
