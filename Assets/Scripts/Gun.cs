@@ -5,7 +5,7 @@ using UnityEngine.VFX;
 
 public class Gun : Weapon
 {
-    [SerializeField] VisualEffect muzzle;
+    [SerializeField] ParticleSystem muzzle;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float delayBetweenProjectile = 1f;
     [SerializeField] GameObject gunShotSFX;
