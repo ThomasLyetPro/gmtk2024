@@ -32,6 +32,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
     InputAction recallAction;
     InputAction shootAction;
     InputAction wheelAction;
+    InputAction secretAction;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
         recallAction = allActions.FindAction("Recall");
         shootAction = allActions.FindAction("Shoot");
         wheelAction = allActions.FindAction("Wheel");
+        secretAction = allActions.FindAction("Secret");
     }
 
     [SerializeField] Weapon[] weapons;
@@ -88,7 +90,12 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
             weapons[currentWeapon].PrimaryAction();
         }
 
-        var wheelValue = wheelAction.ReadValue<Vector2>();
+        if (secretAction != null && secretAction.IsPressed())
+        {
+            Time.timeScale = (Time.timeScale + 1) % 2;
+        }
+
+            var wheelValue = wheelAction.ReadValue<Vector2>();
         if (wheelValue.y != 0)
         {
 
