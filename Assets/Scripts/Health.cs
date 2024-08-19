@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            currentHealth = (currentHealth + regenPerSec) % maxHealth;
+            currentHealth = (currentHealth + regenPerSec) % (maxHealth + 1);
         }
     }
 

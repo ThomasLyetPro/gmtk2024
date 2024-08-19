@@ -10,10 +10,13 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     AIState state = AIState.FollowingPlayer;
 
     NavMeshAgent agent;
+    Detection detectionField;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        detectionField = transform.GetComponentInChildren<Detection>();
+        detectionField.gameObject.SetActive(false);
         agent.Warp(transform.position);
         fists = GetComponentInChildren<Fists>();
         StartCoroutine(FistFury());
@@ -47,10 +50,10 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
         }
     }
 
-    public bool ReachedDestinationOrGaveUp()
+/*    public bool ReachedDestinationOrGaveUp()
     {
         return (!agent.pathPending) && (agent.remainingDistance <= agent.stoppingDistance) && (!agent.hasPath || agent.velocity.sqrMagnitude == 0f);
-    }
+    }*/
 
     [SerializeField] GameObject deathMinionSfx;
     public void BeforeDestroy()
@@ -61,6 +64,7 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     public void ChargeTo(Vector3 destination)
     {
         if (state != AIState.FollowingPlayer) return;
+        detectionField.gameObject.SetActive(true);
         state = AIState.Charging;
         agent.destination = destination;
     }
@@ -68,6 +72,7 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     public void RecallToPlayer()
     {
         state = AIState.FollowingPlayer;
+        targets.Clear();
     }
 
     Queue<GameObject> targets = new Queue<GameObject>();
