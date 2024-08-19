@@ -47,11 +47,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -150789438
-      Data2: 1158359781
-      Data3: 623974290
-      Data4: -437718620
-    Path: event:/01_Player/Combat/Attack/Atk_Player_Punch
+      Data1: -1068794562
+      Data2: 1204618117
+      Data3: 1358177441
+      Data4: 1937904042
+    Path: event:/01_Player/Combat/Attack/Atk_Player_Punch_Impact
   Event: 
   PlayEvent: 1
   StopEvent: 0

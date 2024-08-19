@@ -14,7 +14,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
     internal void AddNutriment(int number)
     {
         stats.nutriment += number;
-        while(stats.nutriment > 5)
+        while(stats.nutriment >= 5)
         {
             SpawnMinion();
             stats.nutriment -= 5;

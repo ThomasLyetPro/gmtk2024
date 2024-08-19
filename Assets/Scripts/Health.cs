@@ -10,8 +10,10 @@ public class Health : MonoBehaviour
     }
 
     [SerializeField] int maxHealth = 3;
-    [SerializeField] int currentHealth;
+    [SerializeField] public int currentHealth;
     [SerializeField] int regenPerSec = 0;
+
+    [SerializeField] GameObject hurtSFX;
 
     private void Start()
     {
@@ -30,6 +32,8 @@ public class Health : MonoBehaviour
 
     public bool TakeDamage(int damage)
     {
+        if (hurtSFX) 
+            Destroy(Instantiate(hurtSFX, gameObject.transform.position, Quaternion.identity), 3f);
         currentHealth -= damage;
         if (currentHealth <= 0)
         {

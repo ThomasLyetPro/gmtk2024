@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponIndex: 1
+  pickUpSFX: {fileID: 7597303336256868821, guid: 77c89e15f6429b347b7debf962e1d8e1, type: 3}
 --- !u!95 &5768650683623135757
 Animator:
   serializedVersion: 5

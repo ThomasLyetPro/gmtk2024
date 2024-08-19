@@ -12,8 +12,11 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     NavMeshAgent agent;
     Detection detectionField;
 
+    [SerializeField] GameObject multiplicationSFX;
+
     void Start()
     {
+        Destroy(Instantiate(multiplicationSFX, gameObject.transform), 3f);
         agent = GetComponent<NavMeshAgent>();
         detectionField = transform.GetComponentInChildren<Detection>();
         detectionField.gameObject.SetActive(false);
@@ -67,6 +70,7 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
         detectionField.gameObject.SetActive(true);
         state = AIState.Charging;
         agent.destination = destination;
+        agent.stoppingDistance = 1f;
     }
 
     public void RecallToPlayer()
@@ -74,6 +78,7 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
         state = AIState.FollowingPlayer;
         targets.Clear();
         currentTarget = null;
+        agent.stoppingDistance = 2f;
     }
 
     Queue<GameObject> targets = new Queue<GameObject>();
