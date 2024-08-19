@@ -73,6 +73,7 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     {
         state = AIState.FollowingPlayer;
         targets.Clear();
+        currentTarget = null;
     }
 
     Queue<GameObject> targets = new Queue<GameObject>();
