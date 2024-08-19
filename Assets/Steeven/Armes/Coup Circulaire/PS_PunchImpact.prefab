@@ -9757,7 +9757,7 @@ GameObject:
   - component: {fileID: 6232030617876155458}
   - component: {fileID: 2908721387773498353}
   m_Layer: 0
-  m_Name: PS_Impact
+  m_Name: PS_PunchImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
