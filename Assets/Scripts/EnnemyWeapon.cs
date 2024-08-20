@@ -7,6 +7,8 @@ public class EnnemyWeapon : MonoBehaviour
     [SerializeField] int damage = 1;
 
     [SerializeField] GameObject impactSFX;
+    [SerializeField] bool impactSFXAlreadyPlayed = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Minion" || other.gameObject.layer == 6)
@@ -15,8 +17,11 @@ public class EnnemyWeapon : MonoBehaviour
             // Collision is in children game object, wait for the collision with parent
             if (health)
             {
-                if (impactSFX)
+                if (impactSFX && !impactSFXAlreadyPlayed)
+                {
+                    impactSFXAlreadyPlayed = true;
                     Destroy(Instantiate(impactSFX, gameObject.transform.position, Quaternion.identity), 3f);
+                }
                 health.TakeDamage(damage);
             }
         }
