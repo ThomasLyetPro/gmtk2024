@@ -170,7 +170,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
         StartCoroutine(ScreenShake());
     }
 
-    EnnemyDetectionField tabasseurField;
+    public EnnemyDetectionField tabasseurField;
     IEnumerator TriggerFMODEvent()
     {
         tabasseurField = GetComponentInChildren<EnnemyDetectionField>();

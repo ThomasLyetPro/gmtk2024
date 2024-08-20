@@ -54,6 +54,7 @@ public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     public void BeforeDestroy()
     {
         tabasseurDestroyed++;
+        Player.singleton.tabasseurField.tabasseurInField--;
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TabasseurDestroyed", tabasseurDestroyed);
         SpawnNutriment();
         Destroy(Instantiate(deathSFXPrefab, gameObject.transform.position, Quaternion.identity), 3f);

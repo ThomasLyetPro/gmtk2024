@@ -181,3 +181,5 @@ MonoBehaviour:
   speed: 65
   lifetime: 1
   impactVFX: {fileID: 2626496846326083681, guid: 31201252d270e814ab4de1cd2a4d7bb8, type: 3}
+  impactSFX: {fileID: 7597303336256868821, guid: cece93e89c1b2bf4b9821f8eb63239a2, type: 3}
+  damage: 25

@@ -43,7 +43,7 @@ public class Fists : Weapon
     {
         if (other.gameObject.tag == "Ennemy")
         {
-            Destroy(Instantiate(throwPunchSFX, gameObject.transform.position, Quaternion.identity), 3f);
+            Destroy(Instantiate(punchImpactSFX, gameObject.transform.position, Quaternion.identity), 3f);
             other.gameObject.GetComponent<Health>().TakeDamage(fistDamage);
         }
     }

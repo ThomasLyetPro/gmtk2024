@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float lifetime = 1f;
     [SerializeField] GameObject impactVFX;
+    [SerializeField] GameObject impactSFX;
 
     public void SetDestination(Vector3 destination)
     {
@@ -23,6 +24,7 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.layer != 2)
         {
             Destroy(Instantiate(impactVFX, gameObject.transform.position, Quaternion.identity), 2f);
+            Destroy(Instantiate(impactSFX, gameObject.transform.position, Quaternion.identity), 2f);
             Destroy(gameObject);
         }
         if (other.gameObject.tag == "Ennemy")
