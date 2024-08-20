@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,10 +25,23 @@ public class RedCell : MonoBehaviour, Destroyer.IDestroyListener
     }
 
     [SerializeField] GameObject nutrimentPrefab;
+    [SerializeField] GameObject deathSFX;
     public void BeforeDestroy()
     {
         var position = gameObject.transform.position;
         position.y = 0.5f;
         Instantiate(nutrimentPrefab, position, Quaternion.identity);
+        Destroy(Instantiate(deathSFX, gameObject.transform.position, Quaternion.identity), 3f);
+    }
+
+    StudioEventEmitter hurtSFX;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            if (hurtSFX == null)
+                hurtSFX = GetComponent<StudioEventEmitter>();
+            hurtSFX.Play();
+        }
     }
 }

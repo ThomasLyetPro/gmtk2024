@@ -49,7 +49,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
         secretAction = allActions.FindAction("Secret");
 
         health = GetComponent<Health>();
-        StartCoroutine(FMODEvent());
+        StartCoroutine(TriggerFMODEvent());
     }
 
     [SerializeField] Weapon[] weapons;
@@ -169,7 +169,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
     }
 
     EnnemyDetectionField tabasseurField;
-    IEnumerator FMODEvent()
+    IEnumerator TriggerFMODEvent()
     {
         tabasseurField = GetComponentInChildren<EnnemyDetectionField>();
         while (true)

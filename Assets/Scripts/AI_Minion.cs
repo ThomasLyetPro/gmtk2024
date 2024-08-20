@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
 
 public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.ITargetHolder
 {
@@ -23,6 +24,7 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
         agent.Warp(transform.position);
         fists = GetComponentInChildren<Fists>();
         StartCoroutine(FistFury());
+        StartCoroutine(JumpingAnim());
     }
 
     Fists fists;
@@ -91,5 +93,16 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     public bool IsTarget(GameObject otherGameObject)
     {
         return otherGameObject.tag == "Ennemy";
+    }
+
+    [SerializeField] GameObject mesh;
+    IEnumerator JumpingAnim()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(2f, 5f));
+            if (mesh == null || mesh.transform == null) yield break;
+            mesh.transform.DOLocalMoveY(1f, 0.75f).SetEase(Ease.InBounce).SetLoops(2, LoopType.Yoyo);
+        }
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5789911147547035662}
   - component: {fileID: 4621700337517761115}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: EnnemyDetectionField
   m_TagString: Untagged
   m_Icon: {fileID: 0}

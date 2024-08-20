@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2752383074635563309}
   - component: {fileID: 7510509293383611101}
   - component: {fileID: 482492714407373589}
+  - component: {fileID: 2363585760901261548}
   m_Layer: 0
   m_Name: Red Cell
   m_TagString: Ennemy
@@ -36,6 +37,7 @@ Transform:
   m_Children:
   - {fileID: 5505446623363013441}
   - {fileID: 3337280233301016487}
+  - {fileID: 8539627450943399625}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4898674834483472661
@@ -138,6 +140,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialDestination: {fileID: 0}
   nutrimentPrefab: {fileID: 1109831429747672629, guid: ce301ccfede981a4ba39d19116d609b8, type: 3}
+  deathSFX: {fileID: 7597303336256868821, guid: 1aa1af71942ee0547b8e383d13912187, type: 3}
+--- !u!114 &2363585760901261548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957743483046649247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2031703052
+      Data2: 1076614051
+      Data3: 635874693
+      Data4: -1722048254
+    Path: event:/03_Enemies/Globule/Hurt_Globule
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1 &1501015593187367180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8539627450943399625}
+  m_Layer: 0
+  m_Name: HurtSFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8539627450943399625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501015593187367180}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 343695059860536633}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3039788466808542997
 GameObject:
   m_ObjectHideFlags: 0
