@@ -10,7 +10,7 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nutriment.text = "Food: " + Player.singleton.stats.nutriment;
+        nutriment.text = "Food: " + Player.singleton.stats.nutriment + " / 5";
         health.text = "Health: " + Player.singleton.GetComponent<Health>().currentHealth;
     }
 }
