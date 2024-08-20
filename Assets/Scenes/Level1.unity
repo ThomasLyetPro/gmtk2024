@@ -656,6 +656,7 @@ GameObject:
   - component: {fileID: 211927699}
   - component: {fileID: 211927700}
   - component: {fileID: 211927701}
+  - component: {fileID: 211927702}
   m_Layer: 0
   m_Name: FMODListener
   m_TagString: Untagged
@@ -711,6 +712,37 @@ MonoBehaviour:
       Data3: -168003664
       Data4: 212867657
     Path: event:/06_Music/Game_Music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &211927702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211927698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 102354392
+      Data2: 1122894656
+      Data3: -1903986041
+      Data4: 1634571972
+    Path: event:/04_Ambiances_Env/Main_Amb
   Event: 
   PlayEvent: 1
   StopEvent: 0
@@ -1291,6 +1323,14 @@ PrefabInstance:
     - target: {fileID: 2070925442191277752, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: VerticalArmLength
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070925442191277753, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+      propertyPath: m_NoiseProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    - target: {fileID: 2070925442191277753, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+      propertyPath: m_AmplitudeGain
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5725,6 +5765,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 343695059860536633, guid: c4f20c63f46c5d14092bde7b0bde2d50, type: 3}
   m_PrefabInstance: {fileID: 1903556492}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1910771669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2070925441746177913, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+  m_PrefabInstance: {fileID: 312009816}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1923087701
 GameObject:
   m_ObjectHideFlags: 0
@@ -6549,6 +6600,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 657b23f7a5650e9449049a067cd7ded5, type: 2}
+    - target: {fileID: 3061592626632060708, guid: 4ba7a27b0c781f44e91e5595d0592470, type: 3}
+      propertyPath: virtualCam
+      value: 
+      objectReference: {fileID: 1910771669}
     - target: {fileID: 3061592626632060708, guid: 4ba7a27b0c781f44e91e5595d0592470, type: 3}
       propertyPath: GameOverHUD
       value: 

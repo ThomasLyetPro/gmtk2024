@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -166,6 +167,7 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
     public void AfterDamageTaken()
     {
         Destroy(Instantiate(playerHurtSFXPrefab, gameObject.transform.position, Quaternion.identity), 3f);
+        StartCoroutine(ScreenShake());
     }
 
     EnnemyDetectionField tabasseurField;
@@ -178,5 +180,15 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("enemies_sphere", tabasseurField.tabasseurInField);
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    [SerializeField] CinemachineVirtualCamera virtualCam;
+    float screenIntensity = 1.2f;
+    public IEnumerator ScreenShake()
+    {
+        var perlin = virtualCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        perlin.m_AmplitudeGain = screenIntensity;
+        yield return new WaitForSeconds(.4f);
+        perlin.m_AmplitudeGain = 0f;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Health : MonoBehaviour
 {
@@ -43,6 +44,15 @@ public class Health : MonoBehaviour
         var listener = GetComponent<IDamageListener>();
         if (listener != null) listener.AfterDamageTaken();
 
+        gameObject.transform.DOScale(1.1f, 0.3f).SetLoops(2, LoopType.Yoyo);
+        //foreach (Material mat in GetComponentsInChildren<Material>())
+        //{
+        //    Shader shader = mat.shader;
+        //    Debug.Log(shader.GetPropertyDefaultVectorValue(shader.FindPropertyIndex("Dark Color")));
+        //    //mat.DOColor(Color.red, 0.3f).SetLoops(2, LoopType.Yoyo);
+        //}
+
         return false;
     }
+
 }

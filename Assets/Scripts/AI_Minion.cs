@@ -28,6 +28,7 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
     }
 
     Fists fists;
+    bool fistFuryOn = false;
     private IEnumerator FistFury()
     {
         while (true)
@@ -47,6 +48,7 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
         {
             while (currentTarget == null && targets.Count != 0)
                 targets.TryDequeue(out currentTarget);
+            fistFuryOn = currentTarget == null;
             if (currentTarget)
             {
                 state = AIState.ChasingTarget;
@@ -81,6 +83,7 @@ public class AI_Minion : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
         targets.Clear();
         currentTarget = null;
         agent.stoppingDistance = 2f;
+        fistFuryOn = false;
     }
 
     Queue<GameObject> targets = new Queue<GameObject>();

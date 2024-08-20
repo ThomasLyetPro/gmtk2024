@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Nutriment : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Nutriment : MonoBehaviour
         if (other.gameObject.layer == 6 || other.gameObject.tag == "Minion")
         {
             Destroy(gameObject);
+            other.gameObject.transform.DOScale(1.1f, 0.1f).SetLoops(2, LoopType.Yoyo);
             Player.singleton.AddNutriment(1);
         }
     }

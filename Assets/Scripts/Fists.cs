@@ -17,13 +17,14 @@ public class Fists : Weapon
 
     [SerializeField] GameObject throwPunchSFX;
     [SerializeField] GameObject punchImpactSFX;
-
+    [SerializeField] bool activateThrowPunch = true;
     public override void PrimaryAction()
     {
         if ((Time.time - lastShot) > delayBetweenProjectile)
         {
             lastShot = Time.time;
-            Destroy(Instantiate(throwPunchSFX, gameObject.transform.position, Quaternion.identity), 3f);
+            if(activateThrowPunch)
+                Destroy(Instantiate(throwPunchSFX, gameObject.transform.position, Quaternion.identity), 1.5f);
             if (lastPunchWasRight)
                 animator.SetTrigger("Left");
             else

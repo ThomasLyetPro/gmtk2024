@@ -32,6 +32,7 @@ public class Gun : Weapon
                 muzzle.Play();
                 var sfx = Instantiate(gunShotSFX, Player.singleton.GetProjectileSpawnPoint(), Quaternion.identity);
                 Destroy(sfx, 2f);
+                Player.singleton.StartCoroutine(Player.singleton.ScreenShake());
             }
         }
     }

@@ -18,7 +18,8 @@ public class Food : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 6) // Layer is player
-        { 
+        {
+            Player.singleton.transform.DOScale(1.1f, 0.1f).SetLoops(2, LoopType.Yoyo);
             Player.singleton.SpawnMinion();
             Destroy(gameObject);
         }
