@@ -268,17 +268,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9085277471127696296}
     m_Modifications:
+    - target: {fileID: 946250674681357151, guid: 4c2b52b45c3f29c44947ff262e4c9c7b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 946250674681357151, guid: 4c2b52b45c3f29c44947ff262e4c9c7b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 946250674681357151, guid: 4c2b52b45c3f29c44947ff262e4c9c7b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8773585
+      objectReference: {fileID: 0}
     - target: {fileID: 5337550791441016401, guid: 4c2b52b45c3f29c44947ff262e4c9c7b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.008571429
+      value: 0.012999999
       objectReference: {fileID: 0}
     - target: {fileID: 5337550791441016401, guid: 4c2b52b45c3f29c44947ff262e4c9c7b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.008571429
+      value: 0.012999999
       objectReference: {fileID: 0}
     - target: {fileID: 5337550791441016401, guid: 4c2b52b45c3f29c44947ff262e4c9c7b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.008571429
+      value: 0.012999999
       objectReference: {fileID: 0}
     - target: {fileID: 5337550791441016401, guid: 4c2b52b45c3f29c44947ff262e4c9c7b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -290,7 +302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5337550791441016401, guid: 4c2b52b45c3f29c44947ff262e4c9c7b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.018571429
+      value: 0.0188
       objectReference: {fileID: 0}
     - target: {fileID: 5337550791441016401, guid: 4c2b52b45c3f29c44947ff262e4c9c7b, type: 3}
       propertyPath: m_LocalRotation.w
