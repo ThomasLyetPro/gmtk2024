@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2419578762096898973}
   - component: {fileID: 6452815343543883249}
   m_Layer: 0
-  m_Name: SFXDeathPlayer
+  m_Name: SFX_Kill_Moquery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,11 +47,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -454164281
-      Data2: 1270474138
-      Data3: -1647584855
-      Data4: -2027237297
-    Path: event:/01_Player/Combat/Feedback/Death_Player
+      Data1: 184518297
+      Data2: 1096340444
+      Data3: -1495864132
+      Data4: 320525592
+    Path: event:/01_Player/Voicelines/Kill_Moquery
   Event: 
   PlayEvent: 1
   StopEvent: 0

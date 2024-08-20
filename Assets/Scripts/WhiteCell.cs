@@ -36,11 +36,14 @@ public class WhiteCell : MonoBehaviour, Destroyer.IDestroyListener, Detection.IT
 
 
     [SerializeField] GameObject threatSFX;
+    bool threatNotYetLaunched = true;
     public bool IsTarget(GameObject otherGameObject)
     {
         if ( otherGameObject.tag == "Minion" || otherGameObject.layer == 6)
         {
-            Destroy(Instantiate(threatSFX, gameObject.transform.position, Quaternion.identity), 3f);
+            if (threatNotYetLaunched)
+                Destroy(Instantiate(threatSFX, gameObject.transform.position, Quaternion.identity), 3f);
+            threatNotYetLaunched = false;
             return true;
         }
         return false;

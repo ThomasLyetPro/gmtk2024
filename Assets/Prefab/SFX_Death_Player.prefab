@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2419578762096898973}
   - component: {fileID: 6452815343543883249}
   m_Layer: 0
-  m_Name: SFXMultiplication
+  m_Name: SFX_Death_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,11 +47,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1245520659
-      Data2: 1109802508
-      Data3: -401659475
-      Data4: -1612950314
-    Path: event:/01_Player/Voicelines/Multiplication
+      Data1: -454164281
+      Data2: 1270474138
+      Data3: -1647584855
+      Data4: -2027237297
+    Path: event:/01_Player/Combat/Feedback/Death_Player
   Event: 
   PlayEvent: 1
   StopEvent: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2419578762096898973}
   - component: {fileID: 6452815343543883249}
   m_Layer: 0
-  m_Name: SFXPickUpGun
+  m_Name: SFX_Atk_Tabasseur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,11 +47,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1350102954
-      Data2: 1201644220
-      Data3: -779134300
-      Data4: 1200192661
-    Path: event:/02_Objects/Weapons/Gun/Pickup_Gun
+      Data1: -113317208
+      Data2: 1259150926
+      Data3: 676238227
+      Data4: 1097789838
+    Path: event:/03_Enemies/Tabasseur/Atk_Tabasseur
   Event: 
   PlayEvent: 1
   StopEvent: 0

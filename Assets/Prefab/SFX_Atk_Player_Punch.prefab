@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9164015979544932689
+--- !u!1 &7597303336256868821
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3829727357207644422}
-  - component: {fileID: 4237513569182559802}
+  - component: {fileID: 2419578762096898973}
+  - component: {fileID: 6452815343543883249}
   m_Layer: 0
-  m_Name: SFXGunShot
+  m_Name: SFX_Atk_Player_Punch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3829727357207644422
+--- !u!4 &2419578762096898973
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9164015979544932689}
+  m_GameObject: {fileID: 7597303336256868821}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4237513569182559802
+--- !u!114 &6452815343543883249
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9164015979544932689}
+  m_GameObject: {fileID: 7597303336256868821}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
@@ -47,11 +47,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1625937797
-      Data2: 1234046608
-      Data3: -1320319298
-      Data4: -763234407
-    Path: event:/02_Objects/Weapons/Gun/Gun_Player_Shoot
+      Data1: -150789438
+      Data2: 1158359781
+      Data3: 623974290
+      Data4: -437718620
+    Path: event:/01_Player/Combat/Attack/Atk_Player_Punch
   Event: 
   PlayEvent: 1
   StopEvent: 0

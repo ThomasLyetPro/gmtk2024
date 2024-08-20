@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2419578762096898973}
   - component: {fileID: 6452815343543883249}
   m_Layer: 0
-  m_Name: SFXMockeryPlayer
+  m_Name: SFX_Hurt_Tabasseur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,11 +47,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 184518297
-      Data2: 1096340444
-      Data3: -1495864132
-      Data4: 320525592
-    Path: event:/01_Player/Voicelines/Kill_Moquery
+      Data1: 352654381
+      Data2: 1314479195
+      Data3: 954155431
+      Data4: -1102302001
+    Path: event:/03_Enemies/Tabasseur/Hurt_Tabasseur
   Event: 
   PlayEvent: 1
   StopEvent: 0

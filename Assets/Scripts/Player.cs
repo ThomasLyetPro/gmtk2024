@@ -34,6 +34,8 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
     InputAction wheelAction;
     InputAction secretAction;
 
+    Health health;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,9 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
         shootAction = allActions.FindAction("Shoot");
         wheelAction = allActions.FindAction("Wheel");
         secretAction = allActions.FindAction("Secret");
+
+        health = GetComponent<Health>();
+        StartCoroutine(FMODEvent());
     }
 
     [SerializeField] Weapon[] weapons;
@@ -161,5 +166,17 @@ public class Player : MonoBehaviour, Destroyer.IDestroyListener, Health.IDamageL
     public void AfterDamageTaken()
     {
         Destroy(Instantiate(playerHurtSFXPrefab, gameObject.transform.position, Quaternion.identity), 3f);
+    }
+
+    EnnemyDetectionField tabasseurField;
+    IEnumerator FMODEvent()
+    {
+        tabasseurField = GetComponentInChildren<EnnemyDetectionField>();
+        while (true)
+        {
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("life", health.currentHealth);
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("enemies_sphere", tabasseurField.tabasseurInField);
+            yield return new WaitForSeconds(1f);
+        }
     }
 }
